@@ -12,7 +12,7 @@ const router = express.Router();
 app.use('./api', router);
 authRoutes(router);
 
-Router.get('/', (req,res)=>{
+router.get('/', (req,res)=>{
     res.send('Hello World')
 })
 

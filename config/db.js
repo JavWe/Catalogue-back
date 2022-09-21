@@ -1,11 +1,11 @@
-const { Mongoose } = require('mongoose');
 
-const mongoose = requires(mongoose);
+
+const mongoose = require('mongoose');
 const dbUrl = require('./properties').DB;
 
 
 module.exports = ()=>{
-    mongoose.connect(dbUrl, {userNewUrlParser: true})
+    mongoose.connect(dbUrl)
         .then(()=> console.log(`Mongo connected on ${dbUrl}`))
         .catch(err => console.log(`Connection has error ${err}`))
 
