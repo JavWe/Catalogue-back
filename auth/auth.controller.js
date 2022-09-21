@@ -1,10 +1,10 @@
 const User = require('./auth.dao');
 const jwt = require('jsonwebtoken');
-const bcryptjs = require('bcryptjs');
-const { response } = require('express');
+const bcryptjs = require('bcryptjs'); 
 const SECRET_KEY = 'secretkey123456';
 
 exports.createUser = (req, res, next) => {
+    
     const newUser = {
         name: req.body.name,
         email: req.body.email,
@@ -19,7 +19,7 @@ exports.createUser = (req, res, next) => {
             expiresIn: expiresIn
         });
         
-        response.send({user})
+        res.send(user)
     })
 }
 

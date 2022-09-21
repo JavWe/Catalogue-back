@@ -8,6 +8,13 @@ DB();
 const app = express();
 const router = express.Router();
 
+const bodyParser = require('body-parser');
+const bodyParserJSON = bodyParser.json()
+const bodyParserUrlEncoded = bodyParser.urlencoded({extended : true})
+
+app.use(bodyParserJSON);
+app.use(bodyParserUrlEncoded);
+
 
 app.use('./api', router);
 authRoutes(router);
@@ -17,4 +24,6 @@ router.get('/', (req,res)=>{
 })
 
 app.use(router)
-app.listen(3000,()=> console.log('Server running on port 3000'));
+
+
+app.listen(4000);

@@ -10,7 +10,7 @@ module.exports = ()=>{
         .catch(err => console.log(`Connection has error ${err}`))
 
         process.on('SIGINT', ()=>{
-            Mongoose.connection.close(()=>{
+            mongoose.connection.close(()=>{
                 console.log(`Mongo is dissconnect`);
                 process.exit(0)
             })
