@@ -1,4 +1,5 @@
-const authRoutes = require('./auth/auth.routes')
+const cors = require('cors');
+const authRoutes = require('./auth/auth.routes');
 const express = require('express');
 const properties = require('./config/properties');
 const DB = require('./config/db')
@@ -15,6 +16,7 @@ const bodyParserUrlEncoded = bodyParser.urlencoded({extended : true})
 app.use(bodyParserJSON);
 app.use(bodyParserUrlEncoded);
 
+app.use(cors());
 
 app.use('./api', router);
 authRoutes(router);
