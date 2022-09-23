@@ -1,6 +1,7 @@
 const cors = require('cors');
 const authRoutes = require('./auth/auth.routes');
 const productsRoutes = require('./products/products.routes');
+const brandRoutes = require('./brands/brands.routes')
 const express = require('express');
 const properties = require('./config/properties');
 const DB = require('./config/db')
@@ -25,9 +26,9 @@ authRoutes(router);
 app.use('./api', router);
 productsRoutes(router)
 
-router.get('/', (req,res)=>{
-    res.send('Hello World')
-})
+app.use('./api', router);
+brandRoutes(router)
+
 
 app.use(router)
 
