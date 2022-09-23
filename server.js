@@ -1,5 +1,6 @@
 const cors = require('cors');
 const authRoutes = require('./auth/auth.routes');
+const productsRoutes = require('./products/products.routes');
 const express = require('express');
 const properties = require('./config/properties');
 const DB = require('./config/db')
@@ -21,6 +22,9 @@ app.use(cors());
 app.use('./api', router);
 authRoutes(router);
 
+app.use('./api', router);
+productsRoutes(router)
+
 router.get('/', (req,res)=>{
     res.send('Hello World')
 })
@@ -28,4 +32,4 @@ router.get('/', (req,res)=>{
 app.use(router)
 
 
-app.listen(4000);
+app.listen(3000);
